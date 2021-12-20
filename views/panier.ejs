@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>IT Academy</h1>
+    <h2>Entrer votre pseudo</h2>
+    <form method="GET" action="/">
+       
+        <input type="submit" value="Retourner au catalogue de formation" />
+    
+    </form>
+    <form method="GET" action="/Finaliserinscription">
+        <input type="submit" value="Finaliser l'inscription" />
+    </form>
+
+    <table>
+        
+        <thead>
+            <tr>
+                <th>nom</th>
+                <th>prix</th>
+                <th>Début</th>
+                <th>Fin</th>
+
+            </tr>
+        </thead>    
+        <tbody>
+            <tr>
+                <% for (let i = 0 ; i < listformationpanier.length ; i++) { %>
+                
+                <td><%= listformationpanier[i].nom %></td>
+                <td><%= listformationpanier[i].prix %></td>
+                <td><%= listformationpanier[i].Debut %></td>
+                <td><%= listformationpanier[i].Fin %></td>
+                <td>
+                    <form method="GET" action="/supprimer?id=<%= listformationpanier[i].id %>">
+                        <input type="submit" value="supprimer" />
+                    </form>
+                </td>
+
+            </tr>
+        </tbody>
+        <% } %>
+    </table>
+            
+    
+</body>
+</html>

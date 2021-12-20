@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+    <h1>IT Academy</h1>
+    <h2>Formations disponibles</h2>
+    
+    <!--a href="/seconnecter">seconnecter</a-->
+
+<!--il faut mettre <form> dans laqaulle on met method get qu'elle va me renvoyer vers /se connecter une fois j'ail cliqué sur le bouton-->    
+    <form method="GET" action="/seconnecter">
+        <input type="submit" value="Se conncter" />
+    </form>
+    
+    <form method="POST" action="/panier">
+        <input type="submit" value="Voir panier" />
+    </form>
+   
+        
+       
+    <table>
+        
+        <thead>
+            <tr>
+                <th>nom</th>
+                <th>prix</th>
+                <th>Début</th>
+                <th>Fin</th>
+
+            </tr>
+        </thead>    
+        <tbody>
+            <tr>
+                <% for (let i = 0 ; i < formations.length ; i++) { %>
+                <td><%= formations[i].nom %></td>
+                <td><%= formations[i].prix %></td>
+                <td><%= formations[i].Debut %></td>
+                <td><%= formations[i].Fin %></td>
+                <td>
+                <form method="POST" action="/ajouterdanspanier?id=<%= formations[i].id %>&nom=<%= formations[i].nom %>&prix=<%= formations[i].prix %>&debut=<%= formations[i].Debut %>&fin=<%= formations[i].Fin %>" >
+                    <input type="submit" value=" s'inscrire"/>
+                </form> 
+                </td>
+
+            </tr>
+        </tbody>
+        <% } %>
+    </table>
+            
+            
+            
+
+        
+        
+    
+    
+    
+    
+    
+</body>
+</html>
